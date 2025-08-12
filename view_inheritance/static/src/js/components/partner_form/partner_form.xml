@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="view_inheritance.ResPartnerForm" t-inherit="web.FormView" t-inherit-mode="primary">    
+        <xpath expr="(//button[contains(@class,'o_form_button_create')])[last()]" position="after">        
+            <button t-on-click="()=>this.openWebsite(model)" class="btn btn-primary" style="width:120px">
+                Go to Website
+            </button>
+        </xpath>
+    </t>
+</templates>

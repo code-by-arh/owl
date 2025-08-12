@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+    <record id="action_external_lib" model="ir.actions.client">
+        <field name="name">External Library</field>
+        <field name="tag">vit_owl_todo.ExternalLib</field>
+    </record>
+
+    <menuitem id="menu_owl_external_lib" name="External Lib" 
+        action="action_external_lib" 
+        parent="vit_owl_todo.menu_root" sequence="30"/>
+</data>
+</odoo>

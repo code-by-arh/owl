@@ -1,0 +1,36 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <t t-name="vit_owl_todo.ResPartnerKanbanView.Buttons" t-inherit="web.KanbanView.Buttons" owl="1">
+        <xpath expr="//t[contains(@t-if, 'canCreate')]" position="after">
+            <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sales Order</button>
+            <button class="btn btn-primary ms-2">View Invoices</button>
+            <button class="btn btn-primary ms-2">View Meetings</button>
+
+        </xpath>
+    </t>
+
+
+    <!--sidebar layout-->
+    <t t-name="vit_owl_todo.ResPartnerKanbanView" t-inherit="web.KanbanView" owl="1">
+        <xpath expr="//t[contains(@t-component, 'props.Renderer')]" position="before">
+            <div class="p-3 bg-white my_partner_sidebar">
+                <h2>Customer Locations</h2>
+
+
+                <div class="list-group">
+                    <t t-foreach="customerLocations" t-as="loc" t-key="loc.state_id[0]">
+                        <a href="#" t-on-click="()=>this.selectLocation(loc.state_id)" class="list-group-item">
+                            <span t-esc="loc.state_id[1]" />
+                            <span t-esc="loc.state_id_count" class="badge bg-primary text-white"/> 
+                        </a>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//Layout" position="attributes">
+            <attribute name="className">model.useSampleModel ? 'o_view_sample_data' : '' + 'd-flex'</attribute>
+        </xpath>
+    </t>
+</template>
