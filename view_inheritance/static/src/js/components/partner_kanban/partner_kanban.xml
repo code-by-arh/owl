@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
-    <t t-name="view_inheritance.ResPartnerKanbanView.Buttons" t-inherit="web.KanbanView.Buttons" owl="1">
-        <!-- <xpath expr="//t[contains(@t-if, 'canCreate')]" position="after">
-            <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sales Order</button>
-            <button class="btn btn-primary ms-2">View Invoices</button>
-            <button class="btn btn-primary ms-2">View Meetings</button>
 
-        </xpath> -->
-    </t>
+    <t t-name="view_inheritance.ResPartnerKanbanView" t-inherit="web.KanbanView"  t-inherit-mode="primary">
 
+        <!-- add buttons -->
+        <xpath expr="//button[contains(@class,'o-kanban-button-new')]" position="after">
+            <button class="btn btn-primary ms-2" t-on-click="openSalesView" style="width: 120px">View SO</button>
+            <button class="btn btn-primary ms-2" style="width: 120px">View Invoices</button> <!-- quiz -->
+            <button class="btn btn-primary ms-2" style="width: 120px">View Meetings</button> <!-- quiz -->
+        </xpath>
 
-    <!--sidebar layout-->
-    <t t-name="view_inheritance.ResPartnerKanbanView" t-inherit="web.KanbanView" owl="1">
+        <!-- add side bar -->
         <xpath expr="//t[contains(@t-component, 'props.Renderer')]" position="before">
             <div class="p-3 bg-white my_partner_sidebar">
                 <h2>Customer Locations</h2>

@@ -9,6 +9,5 @@ class partner(models.Model):
 
 
     username = fields.Char("user Name")
-    salary = fields.Integer("Salary")
 
 

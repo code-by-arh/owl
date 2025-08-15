@@ -20,16 +20,6 @@ class ResPartnerKanbanController extends KanbanController {
         })
     }
 
-    openSalesView(){
-        console.log('sales order here..')
-        this.action.doAction({
-            type:'ir.actions.act_window',
-            name:'Customer Sales',
-            res_model:'sale.order',
-            views:[[false, 'kanban'] , [false,'form']]
-        })
-    }
-
 
     selectLocation(state){
         const id= state[0]
@@ -38,12 +28,17 @@ class ResPartnerKanbanController extends KanbanController {
             domain: [...this.props.domain, ['state_id', '=', id]],
             context: this.props.context,
         });        
-        // this.env.searchModel.setDomainParts({
-        //     state: {
-        //         domain:[['state_id','=',id]],
-        //         facetLabel: name
-        //     }
-        // })
+
+    }
+
+    openSalesView(){
+        console.log('sales order here..')
+        this.action.doAction({
+            type:'ir.actions.act_window',
+            name:'Customer Sales',
+            res_model:'sale.order',
+            views:[[false, 'kanban'] , [false,'form']]
+        })
     }
 
 }
@@ -55,8 +50,7 @@ ResPartnerKanbanController.template= 'view_inheritance.ResPartnerKanbanView'
 
 export const resPartnerKanbanView = {
     ...kanbanView,
-    Controller: ResPartnerKanbanController,
-    buttonTemplate: "view_inheritance.ResPartnerKanbanView.Buttons",
+    Controller: ResPartnerKanbanController
 }
 
 registry.category('views').add('res_partner_kanban_view', resPartnerKanbanView)

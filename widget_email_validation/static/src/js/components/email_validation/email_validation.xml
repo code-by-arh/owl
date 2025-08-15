@@ -1,15 +1,16 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <t t-name="vit_owl_todo.ValidEmailField" t-inherit="web.EmailField" owl="1">
+<templates xml:space="preserve">
+    <t t-name="widget_email_validation.ValidEmailField" t-inherit="web.EmailField" 
+        t-inherit-mode="primary">
+        
         <xpath expr="." position="inside">
             <span class="text-danger" t-if="!isValidEmail">Invalid Email</span>        
         </xpath>
 
         <xpath expr="//input" position="after">
             <a
-                t-if="props.value and isValidEmail"
-                t-att-href="'mailto:'+props.value"
+                t-if="this.props.record.data[this.props.name] and isValidEmail"
+                t-att-href="'mailto:'+this.props.record.data[this.props.name]"
                 class="ms-3 d-inline-flex align-items-center"
             >
                 <i class="fa fa-envelope" data-tooltip="Send Email" aria-label="Send Email"></i>

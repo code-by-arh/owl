@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<template>
-    <t t-name="view_inheritance.ResPartnerListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
-        <!-- <xpath expr="//t[contains(@t-if, 'isExportEnable')]" position="before">
+<templates>
+    <t t-name="view_inheritance.ResPartnerListView" t-inherit="web.ListView" t-inherit-mode="primary">
+        <xpath expr="//button[contains(@class, 'o_list_button_add')]" position="before">
             <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sales Order</button>
             <button class="btn btn-primary ms-2">View Invoices</button>
             <button class="btn btn-primary ms-2">View Meetings</button>
 
-        </xpath> -->
+        </xpath>
     </t>
-</template>
+</templates>

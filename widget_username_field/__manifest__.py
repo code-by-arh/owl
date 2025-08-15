@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "OWL todo list",
+    'name': "OWL username field",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,16 +20,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
         'views/res_partner.xml',
-        'views/odoo_services.xml',
-        'views/external_lib.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -37,9 +32,9 @@
     ],
     'assets': {
         'web.assets_backend':[
-            'vit_owl_todo/static/src/js/components/*/*.js',
-            'vit_owl_todo/static/src/js/components/*/*.xml',
-            'vit_owl_todo/static/src/js/components/*/*.scss',
+            'widget_username_field/static/src/js/components/*/*.js',
+            'widget_username_field/static/src/js/components/*/*.xml',
+            'widget_username_field/static/src/js/components/*/*.scss',
         ]
     }
 }

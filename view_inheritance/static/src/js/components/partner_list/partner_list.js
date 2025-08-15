@@ -28,7 +28,7 @@ class ResPartnerListController extends ListController {
 export const resPartnerListView = {
     ...listView,
     Controller: ResPartnerListController,
-    buttonTemplate: "view_inheritance.ResPartnerListView.Buttons",
 }
+ResPartnerListController.template= 'view_inheritance.ResPartnerListView'
 
 registry.category('views').add('res_partner_list_view', resPartnerListView)
