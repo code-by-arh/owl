@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "OWL todo list",
+    'name': "OWL Range field",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -24,12 +24,7 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
         'views/res_partner.xml',
-        'views/odoo_services.xml',
-        'views/external_lib.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
@@ -37,9 +32,9 @@
     ],
     'assets': {
         'web.assets_backend':[
-            'vit_owl_todo/static/src/js/components/*/*.js',
-            'vit_owl_todo/static/src/js/components/*/*.xml',
-            'vit_owl_todo/static/src/js/components/*/*.scss',
+            'widget_range_field/static/src/js/components/*/*.js',
+            'widget_range_field/static/src/js/components/*/*.xml',
+            'widget_range_field/static/src/js/components/*/*.scss',
         ]
     }
 }

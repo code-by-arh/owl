@@ -8,7 +8,6 @@ class partner(models.Model):
     _inherit = 'res.partner'
 
 
-    username = fields.Char("user Name")
     salary = fields.Integer("Salary")
 
 

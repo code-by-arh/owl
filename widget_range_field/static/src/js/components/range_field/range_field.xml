@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="widget_range_field.RangeButton" >
+        <div>
+            <label for="customRange1" class="form-label">
+                <span t-esc="this.props.record.data[this.props.name]"/> 
+                <span t-esc="currency"/>
+            </label>
+            <input type="range" class="form-range" id="customRange1" min="100" max="10000" step="100"
+             t-on-change="(ev)=>this.props.record.update({[this.props.name]: ev.target.value })" 
+             t-att-value="this.props.record.data[this.props.name]"
+             t-att-title="this.props.record.data[this.props.name]"
+             />
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="wc_form_inherited" model="ir.ui.view">
+        <field name="name">wc_form_inherited</field>
+        <field name="model">mrp.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_workcenter_view"/>
+        <field name="arch" type="xml">
+            <field name="code" position="before">
+              <field name="is_production" widget="boolean_led" 
+                     options="{'on_color':'lightgreen', 'off_color':'red'}"/>
+            </field>
+        </field>
+    </record>
+  </data>
+</odoo>
