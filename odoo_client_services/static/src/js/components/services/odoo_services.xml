@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-    <t t-name="vit_owl_todo.OdooServices" owl="1">
+    <t t-name="odoo_client_services.OdooServices" owl="1">
         <div t-attf-class="vh-100 {{ state.dark_theme == 'true' ? 'bg-dark' : '' }}">
-            <Layout display="display">
+            <!-- <Layout display="display"> -->
                 <div class="row">
                     <div class="col m-3">
                         <button class="btn btn-primary" t-on-click="showNotification">Notification Service</button>
@@ -14,7 +14,6 @@
                         <button class="btn btn-primary ms-2" t-on-click="getRpcService">RPC Service</button>
                         <button class="btn btn-primary ms-2" t-on-click="getOrmService">ORM Service</button>
                         <button class="btn btn-primary ms-2" t-on-click="getActionService">Action Service</button>
-                        <button t-attf-class="btn {{ state.bg_success == '1' ? 'btn-success' : 'btn-primary' }} ms-2" t-on-click="getRouterService">Router Service</button>
                         <button class="btn btn-primary ms-2" t-on-click="getUserService">User Service</button>
                         <button class="btn btn-primary ms-2" t-on-click="getCompanyService">Company Service</button>
                         <button class="btn btn-primary ms-2">Title Service</button>
@@ -59,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-            </Layout>
+            <!-- </Layout> -->
         </div>
     </t>
 </templates>

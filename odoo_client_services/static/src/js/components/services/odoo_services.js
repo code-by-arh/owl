@@ -1,16 +1,18 @@
 /** @odoo-module */
 
 import { registry } from "@web/core/registry"
-import { Layout } from "@web/search/layout"
 import { getDefaultConfig } from "@web/views/view"
 import { useService } from "@web/core/utils/hooks"
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog"
-import { routeToUrl } from "@web/core/browser/router_service"
-import { browser } from "@web/core/browser/browser"
+import { cookie } from "@web/core/browser/cookie";
+import { rpc } from "@web/core/network/rpc";
+
 
 const { Component, useSubEnv, useState } = owl
 
 export class OwlOdooServices extends Component {
+    static template = "odoo_client_services.OdooServices"
+
     setup(){
         console.log("Owl Odoo Services")
         this.display = {
@@ -24,22 +26,17 @@ export class OwlOdooServices extends Component {
             }
         })
 
-        this.cookieService = useService("cookie")
-        console.log(this.cookieService)
-
-        if (this.cookieService.current.dark_theme == undefined){
-            this.cookieService.setCookie("dark_theme", false)
+        if (cookie.get('dark_theme') == undefined){
+            cookie.set("dark_theme", false)
         }
 
-        const router = this.env.services.router
-
         this.state = useState({
-            dark_theme: this.cookieService.current.dark_theme,
+            dark_theme: cookie.get('dark_theme'),
             get_http_data: [],
             post_http_data: [],
             rpc_data: [],
             orm_data: [],
-            bg_success: router.current.search.bg_success,
+            // bg_success: router.current.search.bg_success,
             user_data: null,
             company_data: null,
         })
@@ -104,15 +101,15 @@ export class OwlOdooServices extends Component {
     }
 
     setCookieService(){
-        if (this.cookieService.current.dark_theme == 'false'){
-            this.cookieService.setCookie("dark_theme", true)
+        if (cookie.get('dark_theme') == 'false'){
+            cookie.set("dark_theme", true)
         } else {
-            this.cookieService.setCookie("dark_theme", false)
+            cookie.set("dark_theme", false)
         }
 
-        this.state.dark_theme = this.cookieService.current.dark_theme
+        this.state.dark_theme =cookie.get('dark_theme')
 
-        this.cookieService.deleteCookie("test")
+        // this.cookieService.deleteCookie("test")
     }
 
     async getHttpService(){
@@ -132,7 +129,6 @@ export class OwlOdooServices extends Component {
     }
 
     async getRpcService(){
-        const rpc = this.env.services.rpc
         const data = await rpc("/owl/rpc_service", {limit: 15})
         console.log(data)
         this.state.rpc_data = data
@@ -163,14 +159,6 @@ export class OwlOdooServices extends Component {
         })
     }
 
-    getRouterService(){
-        const router = this.env.services.router
-        console.log(router)
-        let { search } = router.current
-        search.bg_success = search.bg_success == "1" ? "0" : "1"
-        console.log(router.current)
-        browser.location.href = browser.location.origin + routeToUrl(router.current)
-    }
 
     getUserService(){
         const user = this.env.services.user
@@ -185,7 +173,4 @@ export class OwlOdooServices extends Component {
     }
 }
 
-OwlOdooServices.template = "vit_owl_todo.OdooServices"
-OwlOdooServices.components = { Layout }
-
-registry.category("actions").add("vit_owl_todo.OdooServices", OwlOdooServices)
+registry.category("actions").add("odoo_services", OwlOdooServices)

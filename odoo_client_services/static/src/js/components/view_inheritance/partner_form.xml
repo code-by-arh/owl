@@ -1,9 +1,0 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
-<template>
-    <t t-name="vit_owl_todo.ResPartnerForm" t-inherit="web.FormView" owl="1">
-        <xpath expr="//button[hasclass('o_form_button_create')]" position="after">
-            <button t-on-click="()=>this.openWebsite(model)" class="btn btn-primary">Go to Website</button>            
-        </xpath>
-    </t>
-</template>
