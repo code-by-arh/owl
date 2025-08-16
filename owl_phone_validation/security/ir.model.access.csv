@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_owl_phone_validation_owl_phone_validation,owl_phone_validation.owl_phone_validation,model_vit_owl_phone_validation,base.group_user,1,1,1,1

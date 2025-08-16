@@ -3,9 +3,9 @@
 from odoo import models, fields, api
 
 
-class vit_owl_todo(models.Model):
-    _name = 'vit.vit_owl_todo'
-    _description = 'vit.vit_owl_todo'
+class owl_phone_validation(models.Model):
+    _name = 'vit.owl_phone_validation'
+    _description = 'vit.owl_phone_validation'
 
     name = fields.Char("Name")
     color = fields.Char("Color")

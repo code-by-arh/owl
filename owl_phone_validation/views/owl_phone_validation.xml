@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+    <record id="action_owl_phone_validation" model="ir.actions.client">
+        <field name="name">Phone validation</field>
+        <field name="tag">owl_phone_validation</field>
+    </record>
+
+    <menuitem id="menu_phone_validation" name="Phone Validation" 
+        action="action_owl_phone_validation" 
+        sequence="30"/>
+</data>
+</odoo>

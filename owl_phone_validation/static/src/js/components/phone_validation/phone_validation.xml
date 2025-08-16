@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-    <t t-name="vit_owl_todo.ExternalLib" owl="1">
+    <t t-name="owl_phone_validation.PhoneValidation" >
         <div class="row">
             <div class="col">
-                <h1 class="p-3">External Lib</h1>
+                <h1 class="p-3">Phone Number Checker</h1>
                 <div class="row px-5 vh-100 overflow-y-auto">
                     <div class="col-lg-6 p-5">
                         <div class="h1 mb-3">
@@ -20,16 +20,7 @@
                         <button class="btn btn-primary" t-on-click="validate">Validate</button>
                     </div>
                     
-                    <div class="col-lg-6 p-5">
-                        <div class="h1 mb-3">
-                            File upload
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label me-2">File</label>
-                            <input type="file" class="form-control" t-ref="file" id="file"/>
-                        </div>
-
-                    </div>
+                    
                 </div>
             </div>
         </div>
