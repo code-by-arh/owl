@@ -21,12 +21,15 @@ export class FileUpload extends Component {
             await loadJS('https://unpkg.com/filepond@^4/dist/filepond.js')
             await loadCSS('https://unpkg.com/filepond@^4/dist/filepond.css')
 
+            // preview
+            await loadCSS('https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css')
+            await loadJS('https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js')            
         })
 
         onMounted(()=>{
             
-            //plugin
-            // FilePond.registerPlugin(FilePondPluginImagePreview);
+            //plugin preview
+            FilePond.registerPlugin(FilePondPluginImagePreview);
 
             //filepond
             FilePond.create(this.file.el, {

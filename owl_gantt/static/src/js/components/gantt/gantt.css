@@ -1,0 +1,28 @@
+/* .gantt-split-container {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+}
+
+.task-tree {
+    width: 300px;
+    overflow-y: auto;
+    background: #f1f1f1;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+}
+
+.gantt-chart {
+    flex: 1;
+    overflow: auto;
+    background: #fff;
+}
+
+.tree-item {
+    margin: 2px 0;
+    font-family: sans-serif;
+} */
+
+.gantt {
+    height: 600px !important;
+}

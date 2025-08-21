@@ -6,6 +6,7 @@ import { useService } from "@web/core/utils/hooks"
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog"
 import { cookie } from "@web/core/browser/cookie";
 import { rpc } from "@web/core/network/rpc";
+import { user } from "@web/core/user";
 
 
 const { Component, useSubEnv, useState } = owl
@@ -114,7 +115,6 @@ export class OwlOdooServices extends Component {
 
     async getHttpService(){
         const http = this.env.services.http
-        console.log(http)
         const data = await http.get('https://dummyjson.com/products')
         console.log(data)
         this.state.get_http_data = data.products
@@ -122,8 +122,7 @@ export class OwlOdooServices extends Component {
 
     async postHttpService(){
         const http = this.env.services.http
-        console.log(http)
-        const data = await http.post('https://dummyjson.com/products/add', {title: 'BMW Pencil',})
+        const data = await http.post('https://dummyjson.com/products/add', {title: 'BMW X1',})
         console.log(data)
         this.state.post_http_data = data
     }
@@ -161,7 +160,6 @@ export class OwlOdooServices extends Component {
 
 
     getUserService(){
-        const user = this.env.services.user
         console.log(user)
         this.state.user_data = JSON.stringify(user)
     }

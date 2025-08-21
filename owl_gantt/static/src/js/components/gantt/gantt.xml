@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl_gantt.GanttView" owl="1">
+
+        <!-- header area -->
+        <div class="row">
+            <div class="col">
+                <!-- custom breadcrumbs -->
+                <h2 class="p-3">
+                    <a t-attf-href="/web#action={{state.project.project_action_id}}&amp;model=project.project&amp;view_type=kanban">
+                        Projects
+                    </a> / 
+                    <a t-attf-href="/web#action={{state.project.project_action_id}}&amp;id={{ state.project.project_id }}&amp;model=project.project&amp;view_type=form">
+                        <span t-esc="state.project.project_name"/> 
+                        <span t-esc="state.project.project_description"/>
+                    </a> /
+                    <span t-esc="state.project.action_name" />
+                </h2>
+
+                <!-- custom buttons -->
+                <div class="row">
+                    <div class="col">
+                        <button class="btn me-2" t-on-click="zoomYear"><i class="fa fa-calendar"></i> Year</button>
+                        <button class="btn me-2" t-on-click="zoomMonth"><i class="fa fa-calendar"></i> Month</button>
+                        <button class="btn me-2" t-on-click="zoomIn"><i class="fa fa-search-plus"></i> Zoom In</button>
+                        <button class="btn me-2" t-on-click="zoomOut"><i class="fa fa-search-minus"></i> Zoom Out</button>
+                        <button class="btn me-2" t-on-click="expandAll"><i class="fa fa-expand"></i> Expand All</button>
+                        <button class="btn me-2" t-on-click="collapseAll"><i class="fa fa-compress"></i> Collapse All</button>
+                        <button class="btn me-2" t-on-click="reload"><i class="fa fa-refresh"></i> Reload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- gantt chart area-->
+        <div class="row">
+            <div class="col vh-100">
+                <div style="height: 550px; width: 100%; overflow: scroll; z-index: 99999;">
+                    <div style="overflow: scroll" id="gantt" class="gantt" t-ref="ganttDiv"/>
+                </div>
+            </div>
+        </div>
+
+    </t>
+</templates>
