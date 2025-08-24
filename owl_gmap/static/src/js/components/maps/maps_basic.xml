@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_gmap.GoogleMapBasic">
+        <Layout className="'o_map_view'" display="props.display">
+            <div class="o_map_container h-100 d-flex flex-column">
+                <div t-if="!state.mapLoaded" class="alert alert-info m-3">
+                    Loading Google Maps...
+                </div>
+                <div t-if="state.mapLoaded and !state.apiKey" class="alert alert-warning m-3">
+                    <strong>Google Maps API Key Not Configured</strong><br/>
+                    To enable full map functionality, configure the API key in Settings → Technical → Parameters → google_maps.api_key
+                </div>
+                <div t-if="state.mapLoaded and state.locations.length === 0" class="alert alert-info m-3">
+                    No partners with location data found. Make sure partners have latitude and longitude set.
+                </div>
+                <div id="gmap_container" class="flex-grow-1 w-100" style="min-height: 600px;"></div>
+            </div>
+        </Layout>
+    </t>
+</templates>

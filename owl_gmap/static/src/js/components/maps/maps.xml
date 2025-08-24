@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_gmap.GoogleMap">
+        <Layout viewType="'map'" display="props.display" className="props.className">
+            <div id="map" class="w-100 h-100" style="min-height: 500px;"></div>
+        </Layout>
+    </t>
+</templates>

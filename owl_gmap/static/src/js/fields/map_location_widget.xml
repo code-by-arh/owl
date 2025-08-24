@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl_gmap.MapLocationWidget">
+        <div class="o_field_map_location">
+            <div class="map-controls mb-2">
+                <div class="btn-group btn-group-sm" role="group">
+                    <button class="btn btn-primary" t-on-click="onGeocodeClick" 
+                            t-att-disabled="!state.address"
+                            title="Geocode address to find location on map">
+                        <i class="fa fa-search"/> Find Address
+                    </button>
+                    <button class="btn btn-secondary" t-on-click="onClearClick"
+                            title="Clear location">
+                        <i class="fa fa-times"/> Clear
+                    </button>
+                </div>
+                <span class="ms-3 text-muted">
+                    <i class="fa fa-map-marker"/> <t t-esc="displayCoordinates"/>
+                </span>
+            </div>
+            
+            <div t-if="!state.mapLoaded" class="alert alert-info">
+                <i class="fa fa-spinner fa-spin"/> Loading map...
+            </div>
+            
+            <div t-if="state.mapLoaded and !state.apiKey" class="alert alert-warning">
+                <strong>Google Maps API Key Not Configured</strong><br/>
+                Configure API key in Settings → Technical → Parameters → google_maps.api_key
+            </div>
+            
+            <div t-ref="mapContainer" class="map-container" 
+                 style="height: 600px; width: 100%; border: 1px solid #dee2e6; border-radius: 4px;"/>
+            
+            <div class="text-muted small mt-2">
+                <i class="fa fa-info-circle"/> Click on map or drag marker to set location. 
+                <span t-if="state.address">Current address: <t t-esc="state.address"/></span>
+            </div>
+        </div>
+    </t>
+</templates>

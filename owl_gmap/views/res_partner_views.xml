@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define the map view for res.partner -->
+    <record id="res_partner_map_view" model="ir.ui.view">
+        <field name="name">res.partner.map</field>
+        <field name="model">res.partner</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <map/>
+        </field>
+    </record>
+    
+    <!-- Add map location widget to partner form view -->
+    <record id="view_partner_form_map_widget" model="ir.ui.view">
+        <field name="name">res.partner.form.map.widget</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add a new page in the notebook for Map Location -->
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Map Location" name="map_location">
+                    <!-- Hidden fields for data access -->
+                    <field name="partner_latitude" invisible="1"/>
+                    <field name="partner_longitude" invisible="1"/>
+                    <field name="street" invisible="1"/>
+                    <field name="street2" invisible="1"/>
+                    <field name="city" invisible="1"/>
+                    <field name="state_id" invisible="1"/>
+                    <field name="zip" invisible="1"/>
+                    <field name="country_id" invisible="1"/>
+                    
+                    <!-- Map widget takes full width -->
+                    <div class="o_map_location_container" style="margin: -16px;">
+                        <field name="partner_latitude" widget="map_location" nolabel="1"/>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

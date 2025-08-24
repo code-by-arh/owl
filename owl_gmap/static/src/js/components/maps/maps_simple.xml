@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_gmap.GoogleMapSimple">
+        <Layout display="props.display" className="'o_map_view'">
+            <div class="o_map_container h-100">
+                <div t-if="!state.mapLoaded" class="alert alert-warning m-3">
+                    Loading Google Maps...
+                </div>
+                <div id="map" class="w-100 h-100" style="min-height: 500px;"></div>
+            </div>
+        </Layout>
+    </t>
+</templates>

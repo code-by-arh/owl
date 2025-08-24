@@ -1,0 +1,69 @@
+// Full width container for the map in form view
+.o_map_location_container {
+    .o_field_widget {
+        width: 100% !important;
+    }
+}
+
+.o_field_map_location {
+    width: 100%;
+    padding: 16px;
+    
+    .map-container {
+        position: relative;
+        background-color: #f8f9fa;
+        min-height: 500px;
+        
+        // Ensure map is responsive
+        @media (max-width: 1400px) {
+            height: 550px !important;
+        }
+        
+        @media (max-width: 992px) {
+            height: 450px !important;
+        }
+        
+        @media (max-width: 768px) {
+            height: 350px !important;
+        }
+    }
+    
+    .map-controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        .btn-group {
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 576px) {
+            flex-direction: column;
+            align-items: flex-start;
+            
+            .ms-3 {
+                margin-left: 0 !important;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+    
+    // Ensure Google Maps controls are visible
+    .gm-style {
+        .gm-style-cc,
+        .gmnoprint {
+            z-index: 1;
+        }
+    }
+    
+    // Loading state
+    .fa-spinner {
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+}

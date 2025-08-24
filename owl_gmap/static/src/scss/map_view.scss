@@ -1,0 +1,32 @@
+.o_map_view {
+    height: 100%;
+    
+    #map {
+        height: 100%;
+        min-height: 500px;
+    }
+    
+    .custom-map-button {
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 3px;
+        box-shadow: 0 2px 6px rgba(0,0,0,.3);
+        color: rgb(25,25,25);
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0;
+        padding: 8px 12px;
+        text-align: center;
+        transition: background-color 0.3s;
+        
+        &:hover {
+            background-color: #f0f0f0;
+        }
+        
+        &.selected {
+            background-color: #1978d2;
+            color: white;
+            border-color: #1978d2;
+        }
+    }
+}
