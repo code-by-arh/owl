@@ -37,11 +37,11 @@
     ],
     'assets': {
         'web.assets_backend':[
-            'owl_gmap/static/src/scss/map_view.scss',
-            'owl_gmap/static/src/scss/map_location_widget.scss',
             'owl_gmap/static/src/js/components/maps/maps_basic.js',
             'owl_gmap/static/src/js/components/maps/maps_basic.xml',
             'owl_gmap/static/src/js/map_view.js',
+            'owl_gmap/static/src/scss/map_view.scss',
+            'owl_gmap/static/src/scss/map_location_widget.scss',
             'owl_gmap/static/src/js/fields/map_location_widget.js',
             'owl_gmap/static/src/js/fields/map_location_widget.xml',
         ]

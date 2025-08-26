@@ -2,13 +2,14 @@
 
 import { loadJS } from "@web/core/assets";
 import { useService } from "@web/core/utils/hooks";
-import { Component, onWillStart, onMounted, onWillUnmount, useState, onWillUpdateProps } from "@odoo/owl";
 import { Layout } from "@web/search/layout";
+import { Component, onWillStart, onMounted, onWillUnmount, useState, onWillUpdateProps } from "@odoo/owl";
+import { rpc } from "@web/core/network/rpc";
 
 export class GoogleMap extends Component {
     static template = "owl_gmap.GoogleMap";
-    static components = { Layout };
     static props = ["*"];
+    static components = { Layout };
 
     setup() {
         this.orm = useService("orm");
@@ -17,6 +18,7 @@ export class GoogleMap extends Component {
 
         this.state = useState({
             locations: [],
+            apiKey: null,
         });
 
         this.mapLayers = useState({
@@ -29,6 +31,7 @@ export class GoogleMap extends Component {
         this.dataClickListener = null;
 
         onWillStart(async () => {
+            await this.fetchApiKey();
             await this.loadGoogleMaps();
             await this.loadLocations();
         });
@@ -49,6 +52,17 @@ export class GoogleMap extends Component {
         onWillUpdateProps(async (nextProps) => {
             await this.reloadMap(nextProps.domain);
         });
+    }
+
+    async fetchApiKey() {
+        try {
+            const result = await rpc("/gmaps/get_api_key", {});
+            this.state.apiKey = result;
+            console.log("Google Maps API key fetched:", result ? "Key found" : "No key configured");
+        } catch (error) {
+            console.error("Error fetching Google Maps API key:", error);
+            this.state.apiKey = null;
+        }
     }
 
     async loadGoogleMaps() {

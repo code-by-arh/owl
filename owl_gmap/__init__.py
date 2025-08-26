@@ -40,28 +40,13 @@ def post_init_hook(env):
     logger = logging.getLogger(__name__)
     logger.info('Running post_init_hook to add map views...')
     
-    # First, fix any damaged actions from previous incorrect cleanup
-    fix_damaged_actions(env)
     
     try:
-        # Verify the map view exists
-        map_view = env.ref('owl_gmap.res_partner_map_view', raise_if_not_found=False)
-        if not map_view:
-            logger.error("Map view 'owl_gmap.res_partner_map_view' not found!")
-            return
-            
-        logger.info(f"Found map view: {map_view.name} (ID: {map_view.id})")
-            
-        ActWindow = env['ir.actions.act_window']
-        
+                    
         # Target specific actions we want to modify
         action_xmlids = [
             'contacts.action_contacts',  # Contacts
             'base.action_partner_form',  # Contacts
-            'base.action_partner_customer_form',  # Customers (generic)
-            'base.action_partner_supplier_form',  # Vendors (generic)
-            'account.res_partner_action_customer',  # Invoicing -> Customers
-            'account.res_partner_action_supplier',  # Purchase -> Vendors
         ]
         
         for xmlid in action_xmlids:

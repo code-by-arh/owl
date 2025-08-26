@@ -1,7 +1,5 @@
 from odoo import http
 from odoo.http import request
-import json
-import urllib.parse
 
 class GMap(http.Controller):
 
