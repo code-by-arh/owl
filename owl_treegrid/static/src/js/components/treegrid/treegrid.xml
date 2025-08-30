@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl_treegrid.TreeReport">
+
+        <div class="row">
+            <div class="col">
+                <h2 class="p-3">
+                    <t t-esc="state.report.name" />
+                </h2>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn  me-2" t-on-click="treegridExpandAll"><i class="fa fa-expand"></i> Expand All</button>
+                        <button class="btn  me-2" t-on-click="treegridCollapseAll"><i class="fa fa-compress"></i> Collapse All</button>
+                        <button class="btn  me-2" t-on-click="treegridReload"><i class="fa fa-refresh"></i> Reload</button>
+                        <button class="btn  me-2" t-on-click="treegridExportXlSx"><i class="fa fa-file-excel-o"></i> Export</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col vh-100" style="overflow: scroll;">
+                <div style="height: 100%; width: 100%" id="treegrid"  t-ref="treegrid"></div>
+            </div>
+        </div>
+
+    </t>
+</templates>

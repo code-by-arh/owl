@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_vit_report_tree" model="ir.ui.view">
+            <field name="name">vit_report_tree</field>
+            <field name="model">vit.report</field>
+            <field name="arch" type="xml">
+                <list string="Report">
+                    <field name="name" /> <!-- 100-->
+                    <field name="code" /> <!-- 101-->
+                </list>
+            </field>
+        </record>
+
+        <!-- form view -->
+        <record id="view_vit_report_form" model="ir.ui.view">
+            <field name="name">vit_report_form</field>
+            <field name="model">vit.report</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Report">
+                    <header>
+                    </header>
+                    <sheet>
+                    
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Report Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group> <!-- left -->
+                                <field name="code"  />
+
+                            </group>
+                            <group> <!-- right -->
+                                <field name="account_group_ids"  />
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- action window -->
+        <record id="action_report" model="ir.actions.act_window">
+            <field name="name">Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.report</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Report
+                </p><p>
+
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Tree Reports"
+              id="menu_financial_tree_report"
+              parent="account.menu_finance"
+              />
+    
+        <menuitem id="menu_report" name="Report" parent="menu_financial_tree_report" action="action_report" sequence="100"/>
+    </data>
+</odoo>
