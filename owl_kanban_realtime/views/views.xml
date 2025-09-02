@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="vit_progressbar_timer.list">
+      <field name="name">vit_progressbar_timer list</field>
+      <field name="model">mrp.workorder</field>
+      <field name="inherit_id" ref="vit_kanban_view.inherit_mrp_workorder_view_kanban_id2"/>
+      <field name="arch" type="xml">
+          <xpath expr="//kanban" position="attributes">
+              <attribute name="js_class">wo_kanban</attribute>
+          </xpath>
+
+          <!-- <xpath expr="//progressbar" position="attributes">
+              <attribute name="sum_field">duration</attribute>
+              <attribute name="duration_expected_sum_field">duration_expected</attribute>
+          </xpath> -->
+
+      </field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="vit_progressbar_timer.button">
+      <field name="name">vit_progressbar_timer button</field>
+      <field name="model">mrp.workorder</field>
+      <field name="inherit_id" ref="ksi_mrp.inherit_mrp_workorder_view_kanban_id"/>
+      <field name="arch" type="xml">
+
+          <xpath expr='//button[contains(@class,"col btn-sm btn-success") and contains(@name,"action_print_lot")]' position="replace">
+              <field name="is_printed" class="col" widget="print_button" invisible="state != 'print'"/>
+          </xpath>
+          <xpath expr='//button[contains(@class,"col btn-sm btn-danger") and contains(@name,"action_print_lot")]' position="replace"/>
+
+      </field>
+    </record> -->
+
+  </data>
+</odoo>
