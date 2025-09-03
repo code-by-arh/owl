@@ -17,7 +17,8 @@ class ResPartnerFormController extends FormController {
         const url = model.root.data.website
         this.action.doAction({
             type: 'ir.actions.act_url',
-            target: 'self',
+            target: 'new',
+            // target: 'self',
             url
         })
     }
