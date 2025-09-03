@@ -10,11 +10,14 @@ class ValidEmailField extends EmailField {
         console.log('email field inherited')
     }
 
+    get email() {
+        return this.props.record.data[this.props.name];
+    }
+
     //getter function: simple cara ambil nilai di XML
     get isValidEmail(){
         let re = /\S+@\S+\.\S+/;
-        const email = this.props.record.data[this.props.name]
-        return re.test(email)
+        return re.test(this.email)
     }
 }
 export const emailField = {

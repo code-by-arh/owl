@@ -9,8 +9,8 @@
 
         <xpath expr="//input" position="after">
             <a
-                t-if="this.props.record.data[this.props.name] and isValidEmail"
-                t-att-href="'mailto:'+this.props.record.data[this.props.name]"
+                t-if="email and isValidEmail"
+                t-att-href="'mailto:'+email"
                 class="ms-3 d-inline-flex align-items-center"
             >
                 <i class="fa fa-envelope" data-tooltip="Send Email" aria-label="Send Email"></i>
