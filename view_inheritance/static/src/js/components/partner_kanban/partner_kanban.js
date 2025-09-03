@@ -41,6 +41,27 @@ class ResPartnerKanbanController extends KanbanController {
         })
     }
 
+    openInvoicesView(){
+        console.log('Invoices here..')
+        this.action.doAction({
+            type:'ir.actions.act_window',
+            name:'Invoicing',
+            res_model: 'account.move',
+            domain: [['move_type', '=', 'out_invoice']],  
+            views: [[false, 'kanban'], [false, 'form']],
+        })
+    }
+
+    openMeetingView(){
+        console.log('Meeting here..')
+        this.action.doAction({
+            type:'ir.actions.act_window',
+            name:'Meetings',
+            res_model: 'calendar.event',
+            views: [[false, 'calendar'], [false, 'form']],
+        })
+    }
+
 }
 
 

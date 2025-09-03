@@ -6,8 +6,8 @@
         <!-- add buttons -->
         <xpath expr="//button[contains(@class,'o-kanban-button-new')]" position="after">
             <button class="btn btn-primary ms-2" t-on-click="openSalesView" style="width: 120px">View SO</button>
-            <button class="btn btn-primary ms-2" style="width: 120px">View Invoices</button> <!-- quiz -->
-            <button class="btn btn-primary ms-2" style="width: 120px">View Meetings</button> <!-- quiz -->
+            <button class="btn btn-primary ms-2" t-on-click="openInvoicesView" style="width: 120px">View Invoices</button> 
+            <button class="btn btn-primary ms-2" t-on-click="openMeetingView" style="width: 120px">View Meetings</button> <!-- quiz -->
         </xpath>
 
         <!-- add side bar -->
