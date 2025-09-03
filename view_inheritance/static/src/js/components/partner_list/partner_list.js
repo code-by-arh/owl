@@ -23,6 +23,31 @@ class ResPartnerListController extends ListController {
             context:{},
         })
     }
+
+
+    openInvoicesView(){
+        console.log('Invoices here..')
+        this.action.doAction({
+            type:'ir.actions.act_window',
+            name:'Invoicing',
+            res_model:'account.move',
+            views:[[false, 'list'] , [false,'form']],
+            domain:[],
+            context:{},
+        })
+    }
+
+    openMeetingView(){
+        console.log('Meetings here..')
+        this.action.doAction({
+            type:'ir.actions.act_window',
+            name:'Meetings',
+            res_model:'calendar.event',
+            views:[[false, 'list'] , [false,'form']],
+            domain:[],
+            context:{},
+        })
+    }
 }
 
 export const resPartnerListView = {
