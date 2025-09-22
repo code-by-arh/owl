@@ -6,11 +6,14 @@
                 <span t-esc="this.props.record.data[this.props.name]"/> 
                 <span t-esc="currency"/>
             </label>
-            <input type="range" class="form-range" id="customRange1" min="100" max="10000" step="100"
-             t-on-change="(ev)=>this.props.record.update({[this.props.name]: ev.target.value })" 
-             t-att-value="this.props.record.data[this.props.name]"
-             t-att-title="this.props.record.data[this.props.name]"
-             />
+            <input type="range" class="form-range" id="customRange1" 
+                t-att-min="props.record.data.min_value"
+                t-att-max="props.record.data.max_value"
+                t-att-step="props.record.data.step_value"
+                t-on-change="(ev)=>this.props.record.update({[this.props.name]: ev.target.value })" 
+                t-att-value="this.props.record.data[this.props.name]"
+                t-att-title="this.props.record.data[this.props.name]"
+            />
         </div>
     </t>
 </templates>

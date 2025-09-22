@@ -10,6 +10,9 @@
             <field name="arch" type="xml">
 
                 <field name="website" position="before">
+                    <field name="min_value"/>
+                    <field name="max_value"/>
+                    <field name="step_value"/>
                     <field name="salary" widget="range" />
                 </field>
 
