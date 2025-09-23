@@ -8,7 +8,12 @@
         <field name="arch" type="xml">
             <field name="code" position="before">
               <field name="is_production" widget="boolean_led" 
-                     options="{'on_color':'lightgreen', 'off_color':'red'}"/>
+                      options="{
+                              'icon': 'fa-cog',
+                              'color': 'blue',
+                              'on_color': 'lightgreen',
+                              'off_color': 'red',
+                          }"/>
             </field>
         </field>
     </record>

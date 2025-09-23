@@ -3,10 +3,12 @@
 
     <t t-name="vit_led_widget.BooleanLEDField">
         <t t-if="props.on_color">
-            <button t-attf-class="btn btn-sm mx-2 py-1 fa {{props.icon}}" 
+            <button t-attf-class="btn btn-sm mx-2 py-1" 
                 t-attf-style="color: {{props.record.data[props.name] ? props.on_color: props.off_color}}" 
-                t-att-data-tooltip="props.label" 
-                t-on-click.prevent.stop="update" />
+                t-att-data-tooltip="props.record.data[props.name] ? 'Process' : 'Resume'"  
+                t-on-click.prevent.stop="update" >
+                <i t-attf-class="fa {{props.icon}} {{props.record.data[props.name] ? 'fa-spin' : ''}} fa-2x"/>
+            </button>
         </t>
 
         <t t-elif="props.color">
